@@ -892,33 +892,55 @@ body.modal-open{overflow:hidden}
   outline:none;cursor:pointer;transition:border-color .2s;margin-bottom:10px;border-radius:4px;
 }
 .ship-select:focus{border-color:var(--negro)}
-.ship-result{padding:12px 13px;border:1.5px solid var(--negro);border-radius:4px;background:#fafafa}
+.ship-result{padding:14px;border:1.5px solid var(--negro);border-radius:4px;background:#fff}
 .ship-result-header{
-  display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;
-  color:var(--negro);margin-bottom:6px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.84rem;font-weight:700;
+  color:var(--negro);margin-bottom:8px;flex-wrap:wrap;
 }
-.ship-result-badge{display:inline-flex;align-items:center;padding:2px 8px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;font-weight:700;background:var(--negro);color:#fff}
-.ship-result-steps{list-style:none}
-.ship-result-steps li{
-  font-size:.73rem;color:var(--negro);padding:4px 0 4px 16px;
-  position:relative;border-bottom:1px solid #e0e0e0;letter-spacing:.02em;line-height:1.5;
+.ship-result-title{display:flex;align-items:center;gap:6px}
+.ship-result-badge{display:inline-flex;align-items:center;padding:3px 9px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;font-weight:700;background:var(--negro);color:#fff}
+.ship-result-schedule{
+  background:var(--fondo-suave);border:1.5px solid var(--negro);border-radius:4px;
+  padding:8px 12px;font-size:.8rem;margin-bottom:10px;color:var(--negro);
+  display:flex;align-items:center;gap:6px;
 }
-.ship-result-steps li:last-child{border-bottom:none}
-.ship-result-steps li::before{
-  content:'';position:absolute;left:4px;top:10px;
-  width:5px;height:5px;border-radius:50%;background:var(--negro);
+.ship-calc-box{
+  background:#fafafa;border:1.5px solid var(--negro);border-radius:4px;
+  padding:12px 14px;display:flex;flex-direction:column;gap:7px;margin-bottom:8px;
 }
-.ship-result-cost{
-  margin-top:8px;padding:7px 10px;background:#eee;
-  font-size:.8rem;color:var(--negro);display:flex;align-items:center;gap:6px;border-radius:3px;
+.ship-calc-row{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.82rem;color:var(--negro);
 }
-.ship-result-cost strong{color:var(--negro);font-size:.88rem;font-weight:700}
-.ship-prov-cards{display:flex;flex-direction:column;gap:6px}
-.ship-prov-card{padding:9px 11px;border:1.5px solid var(--negro);position:relative;background:#fff;border-radius:4px}
-.ship-prov-badge{position:absolute;top:8px;right:8px;background:var(--negro);color:#fff;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border-radius:2px;font-weight:700}
-.ship-prov-name{font-size:.86rem;font-weight:700;color:var(--negro);margin-bottom:3px;display:flex;align-items:center;gap:6px}
-.ship-prov-desc{font-size:.7rem;color:var(--muted);letter-spacing:.02em;line-height:1.45}
-.ship-prov-detail{margin-top:4px;padding:4px 8px;background:#f0f0f0;font-size:.66rem;color:var(--negro);letter-spacing:.02em;line-height:1.4}
+.ship-calc-row.highlight-advance{
+  padding:6px 8px;background:#f0fdf4;border:1px solid #86efac;
+  border-radius:3px;color:#15803d;font-weight:600;
+}
+.text-advance{color:#15803d;font-weight:700}
+.free-ship-tag{
+  background:#15803d;color:#fff;font-size:.64rem;font-weight:700;
+  padding:2px 7px;border-radius:3px;letter-spacing:.05em;
+}
+.ship-calc-total{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:8px;margin-top:2px;border-top:1.5px solid var(--negro);
+  font-size:.88rem;font-weight:700;color:var(--negro);
+}
+.total-amount{font-size:1.25rem;font-weight:800;color:var(--negro)}
+.ship-note-small{font-size:.74rem;line-height:1.5;color:#444;margin-top:6px}
+
+.ship-prov-intro{
+  padding:10px 12px;background:var(--fondo-suave);border:1.5px solid var(--negro);
+  border-radius:4px;font-size:.78rem;line-height:1.5;margin-bottom:12px;color:var(--negro);
+}
+.ship-prov-cards{display:flex;flex-direction:column;gap:8px}
+.ship-prov-card{padding:12px 14px;border:1.5px solid var(--negro);position:relative;background:#fff;border-radius:4px}
+.ship-prov-badge{position:absolute;top:10px;right:10px;background:var(--negro);color:#fff;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:2px;font-weight:700}
+.ship-prov-name{font-size:.88rem;font-weight:700;color:var(--negro);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.ship-prov-desc{font-size:.74rem;color:var(--muted);letter-spacing:.01em;line-height:1.45;margin-bottom:6px}
+.ship-steps-clean{list-style:none;margin-top:6px;display:flex;flex-direction:column;gap:5px}
+.ship-steps-clean li{font-size:.73rem;line-height:1.45;color:#222;padding-left:14px;position:relative}
+.ship-steps-clean li::before{content:'•';position:absolute;left:2px;color:var(--negro);font-weight:bold}
 
 /* ── RESPONSIVE Y VISTA CELULAR CON TÍTULO Y VIDEO PERFECTOS ── */
 @media(max-width:900px){
@@ -1073,10 +1095,10 @@ body.modal-open{overflow:hidden}
 </a>
 
 <div class="shipping-bar">
-  <span>🚚 <strong>Envío GRATIS</strong> en compras mayores a S/ 250</span>
+  <span>🚚 <strong>Lima:</strong> Courier contra entrega (2 a 7 pm) · <strong>Provincias:</strong> Shalom / Olva · <strong>Envío GRATIS</strong> desde S/ 250</span>
 </div>
 
-<div class="topbar">Envíos a todo el Perú · Arte &amp; Estilo</div>
+<div class="topbar">Envíos a todo el Perú · Separa tu modelo con solo S/ 20 de adelanto</div>
 
 <header>
   <div class="header-top">
@@ -1198,77 +1220,99 @@ body.modal-open{overflow:hidden}
         </button>
         <div class="m-ship-body" id="mShipBody">
           <div class="ship-tab-bar">
-            <button class="ship-tab active" id="shipTabBtn1" onclick="switchShipTab('lima')">📍 Lima</button>
-            <button class="ship-tab" id="shipTabBtn2" onclick="switchShipTab('provincia')">🌎 Provincia</button>
+            <button class="ship-tab active" id="shipTabBtn1" onclick="switchShipTab('lima')">📍 Lima (Courier 2 a 7 pm)</button>
+            <button class="ship-tab" id="shipTabBtn2" onclick="switchShipTab('provincia')">🌎 Provincia (Shalom / Olva)</button>
           </div>
           <div id="shipPanelLima" class="ship-tab-content">
-            <p class="ship-note">Selecciona tu distrito para ver el método recomendado y costo aproximado:</p>
+            <p class="ship-note">Elige tu distrito para ver la tarifa del courier y el monto a pagar al recibir:</p>
             <select class="ship-select" id="shipDistrict" onchange="evalDistrict()">
-              <option value="">— Elige tu distrito —</option>
-              <optgroup label="Lima Central / Cerca (InDriver disponible)">
-                <option value="cerca|Miraflores|8-12">Miraflores</option>
-                <option value="cerca|San Isidro|8-12">San Isidro</option>
-                <option value="cerca|Barranco|8-12">Barranco</option>
-                <option value="cerca|Surquillo|8-12">Surquillo</option>
-                <option value="cerca|San Borja|12-15">San Borja</option>
-                <option value="cerca|Santiago de Surco|13-18">Santiago de Surco</option>
-                <option value="cerca|La Molina|15-20">La Molina</option>
-                <option value="cerca|Lince|10-14">Lince</option>
-                <option value="cerca|San Luis|12-16">San Luis</option>
-                <option value="cerca|Jesús María|10-14">Jesús María</option>
-                <option value="cerca|Magdalena del Mar|10-14">Magdalena del Mar</option>
-                <option value="cerca|Pueblo Libre|12-16">Pueblo Libre</option>
-                <option value="cerca|San Miguel|14-18">San Miguel</option>
-                <option value="cerca|Chorrillos|16-22">Chorrillos</option>
-                <option value="cerca|San Juan de Miraflores|16-22">San Juan de Miraflores</option>
-                <option value="cerca|La Victoria|14-18">La Victoria</option>
-                <option value="cerca|Breña|14-18">Breña</option>
-                <option value="cerca|Cercado de Lima|14-18">Cercado de Lima</option>
-                <option value="cerca|Rímac|16-22">Rímac</option>
-                <option value="cerca|El Agustino|18-25">El Agustino</option>
-                <option value="cerca|Ate Vitarte|20-28">Ate Vitarte</option>
-                <option value="cerca|Santa Anita|20-28">Santa Anita</option>
+              <option value="">— Selecciona tu distrito en Lima / Callao —</option>
+              <optgroup label="Zona Centro — Tarifa S/ 10.00">
+                <option value="centro|Lima (Centro)|10">Lima (Centro) — S/ 10.00</option>
+                <option value="centro|Breña|10">Breña — S/ 10.00</option>
+                <option value="centro|Jesús María|10">Jesús María — S/ 10.00</option>
+                <option value="centro|La Victoria|10">La Victoria — S/ 10.00</option>
+                <option value="centro|Lince|10">Lince — S/ 10.00</option>
+                <option value="centro|Pueblo Libre|10">Pueblo Libre — S/ 10.00</option>
+                <option value="centro|San Isidro|10">San Isidro — S/ 10.00</option>
+                <option value="centro|Miraflores|10">Miraflores — S/ 10.00</option>
+                <option value="centro|Surquillo|10">Surquillo — S/ 10.00</option>
               </optgroup>
-              <optgroup label="Lima Lejos (recomendamos Shalom)">
-                <option value="lejos|Los Olivos|28-38">Los Olivos</option>
-                <option value="lejos|San Martín de Porres|25-35">San Martín de Porres</option>
-                <option value="lejos|Comas|30-42">Comas</option>
-                <option value="lejos|Independencia|28-38">Independencia</option>
-                <option value="lejos|San Juan de Lurigancho|28-40">San Juan de Lurigancho</option>
-                <option value="lejos|Villa El Salvador|25-35">Villa El Salvador</option>
-                <option value="lejos|Villa María del Triunfo|22-32">Villa María del Triunfo</option>
-                <option value="lejos|Lurigancho / Chosica|32-45">Lurigancho / Chosica</option>
-                <option value="lejos|Carabayllo|38-52">Carabayllo</option>
-                <option value="lejos|Puente Piedra|38-52">Puente Piedra</option>
-                <option value="lejos|Callao|25-35">Callao</option>
-                <option value="lejos|Ventanilla|38-50">Ventanilla</option>
-                <option value="lejos|Bellavista|25-35">Bellavista</option>
-                <option value="lejos|Cieneguilla|35-50">Cieneguilla</option>
-                <option value="lejos|Pachacámac|32-45">Pachacámac</option>
-                <option value="lejos|Lurín|30-45">Lurín</option>
-                <option value="lejos|Punta Hermosa|45-65">Punta Hermosa / Punta Negra</option>
-                <option value="lejos|Chaclacayo|35-48">Chaclacayo</option>
-                <option value="lejos|Ancón|42-58">Ancón</option>
+              <optgroup label="Zona Norte — Tarifa S/ 10.00">
+                <option value="norte|Los Olivos|10">Los Olivos — S/ 10.00</option>
+                <option value="norte|Comas|10">Comas — S/ 10.00</option>
+                <option value="norte|Independencia|10">Independencia — S/ 10.00</option>
+                <option value="norte|San Martín de Porres|10">San Martín de Porres — S/ 10.00</option>
+                <option value="norte|Rímac|10">Rímac — S/ 10.00</option>
+              </optgroup>
+              <optgroup label="Zona Este — Tarifa S/ 10.00">
+                <option value="este|Ate (Entrada)|10">Ate (Entrada) — S/ 10.00</option>
+                <option value="este|San Luis|10">San Luis — S/ 10.00</option>
+                <option value="este|El Agustino|10">El Agustino — S/ 10.00</option>
+                <option value="este|La Molina|10">La Molina — S/ 10.00</option>
+                <option value="este|San Juan de Lurigancho|10">San Juan de Lurigancho — S/ 10.00</option>
+                <option value="este|Santa Anita|10">Santa Anita — S/ 10.00</option>
+              </optgroup>
+              <optgroup label="Zona Oeste / Callao — Tarifa S/ 10.00">
+                <option value="oeste|San Miguel|10">San Miguel — S/ 10.00</option>
+                <option value="oeste|Magdalena|10">Magdalena — S/ 10.00</option>
+                <option value="oeste|Callao|10">Callao — S/ 10.00</option>
+                <option value="oeste|Carmen de la Legua|10">Carmen de la Legua — S/ 10.00</option>
+                <option value="oeste|La Perla|10">La Perla — S/ 10.00</option>
+              </optgroup>
+              <optgroup label="Zona Sur — Tarifa S/ 10.00">
+                <option value="sur|San Borja|10">San Borja — S/ 10.00</option>
+                <option value="sur|Barranco|10">Barranco — S/ 10.00</option>
+                <option value="sur|Chorrillos|10">Chorrillos — S/ 10.00</option>
+                <option value="sur|Santiago de Surco|10">Santiago de Surco — S/ 10.00</option>
+                <option value="sur|San Juan de Miraflores|10">San Juan de Miraflores — S/ 10.00</option>
+              </optgroup>
+              <optgroup label="Distritos con Tarifa Especial">
+                <option value="especial|Puente Piedra|12">Puente Piedra — S/ 12.00</option>
+                <option value="especial|Villa El Salvador|13">Villa El Salvador — S/ 13.00</option>
+                <option value="especial|La Punta|13">La Punta — S/ 13.00</option>
+                <option value="especial|Villa María del Triunfo|13">Villa María del Triunfo — S/ 13.00</option>
+                <option value="especial|Santa Clara|13">Santa Clara — S/ 13.00</option>
+                <option value="especial|Ventanilla|15">Ventanilla — S/ 15.00</option>
+                <option value="especial|Huaycán|15">Huaycán — S/ 15.00</option>
+                <option value="especial|José Gálvez|15">José Gálvez — S/ 15.00</option>
+                <option value="especial|Carabayllo|15">Carabayllo — S/ 15.00</option>
+                <option value="especial|Jicamarca|18">Jicamarca — S/ 18.00</option>
+                <option value="especial|Lurín|18">Lurín — S/ 18.00</option>
+                <option value="especial|Chaclacayo|20">Chaclacayo — S/ 20.00</option>
+                <option value="especial|Chosica|20">Chosica — S/ 20.00</option>
+                <option value="especial|Ancón|20">Ancón — S/ 20.00</option>
               </optgroup>
             </select>
             <div class="ship-result" id="shipResult" style="display:none"></div>
           </div>
           <div id="shipPanelProvincia" class="ship-tab-content" style="display:none">
+            <div class="ship-prov-intro">
+              📦 <strong>Envíos a todo el Perú:</strong> Separas tu modelo con un adelanto de <strong>S/ 20</strong> de compromiso. Sin porcentajes confusos.
+            </div>
             <div class="ship-prov-cards">
               <div class="ship-prov-card ship-prov-primary">
                 <div class="ship-prov-badge">Recomendado</div>
-                <div class="ship-prov-name">📦 Shalom</div>
-                <div class="ship-prov-desc">Pagas el <strong>50% del producto</strong> al confirmar el pedido. El saldo + costo de envío los pagas al recoger en tu agencia Shalom más cercana.</div>
-                <div class="ship-prov-detail">⚠️ Avisa con anticipación para la <strong>clave de recojo</strong> y coordinar el pago del 50% restante.</div>
+                <div class="ship-prov-name">📦 Agencia Shalom (Todo el Perú)</div>
+                <div class="ship-prov-desc">La opción más rápida y económica para provincias y departamentos.</div>
+                <ul class="ship-steps-clean">
+                  <li><strong>1. Separas con S/ 20:</strong> Tu producto queda apartado y se procede al embalaje.</li>
+                  <li><strong>2. Foto y voucher:</strong> Te enviamos foto de tu paquete rotulado con su guía de despacho oficial.</li>
+                  <li><strong>3. Saldo del producto:</strong> Cancelas el saldo restante antes de retirar.</li>
+                  <li><strong>4. Pago de flete en ventanilla:</strong> El costo de envío se paga directamente a Shalom al momento de recoger tu paquete.</li>
+                </ul>
               </div>
               <div class="ship-prov-card">
-                <div class="ship-prov-name">🚚 Olva Courier</div>
-                <div class="ship-prov-desc">Segunda opción disponible. Misma modalidad: 50% al confirmar, saldo al recoger en agencia Olva.</div>
+                <div class="ship-prov-name">🚚 Olva Courier (A Domicilio o Agencia)</div>
+                <div class="ship-prov-desc">Llega directo a tu puerta o agencia Olva en cualquier ciudad.</div>
+                <ul class="ship-steps-clean">
+                  <li><strong>1. Separas con S/ 20:</strong> Apartamos tu modelo inmediatamente.</li>
+                  <li><strong>2. Coordinación:</strong> Por WhatsApp coordinamos la dirección exacta y costo de flete según destino.</li>
+                </ul>
               </div>
               <div class="ship-prov-card">
-                <div class="ship-prov-name">🏪 Tu agencia favorita</div>
-                <div class="ship-prov-desc">Enviamos a la agencia de Lima que prefieras. Adicional de <strong>S/ 8 – 15</strong> aprox por envío especial.</div>
-                <div class="ship-prov-detail">📌 Coordina con nosotros por WhatsApp para confirmar agencia y costo.</div>
+                <div class="ship-prov-name">🛵 Zonas de Lima fuera de cobertura</div>
+                <div class="ship-prov-desc">Si vives en balnearios o zonas sin cobertura directa de motorizado local, te lo enviamos por <strong>Agencia Shalom u Olva</strong> con la misma facilidad y solo <strong>S/ 20</strong> de adelanto.</div>
               </div>
             </div>
           </div>
@@ -1581,7 +1625,7 @@ const DOM = {
 
 // ── ESTADO ────────────────────────────────────────────────────────────────────
 let busqueda = '', categoriaActiva = 'Todos', sortDir = null, viewMode = 'grid';
-let currentTiktokId = null, currentProductName = '';
+let currentTiktokId = null, currentProductName = '', currentProduct = null;
 
 const categorias = ['Todos', 'Liquidacion', ...[...new Set(productos.map(p => p.cat))]];
 
@@ -1883,6 +1927,7 @@ function openModal(idx) {
   const p = productos[idx];
 
   if (!DOM.overlay.classList.contains('open')) modalTrigger = document.activeElement;
+  currentProduct = p;
   const isCare = /^AC0[1-4]$/.test(p.code);
   DOM.mName.textContent = p.name;
 
@@ -1952,12 +1997,19 @@ function openModal(idx) {
 
   DOM.mWA.onclick = () => {
     showToast();
+    const selDist = DOM.shipDistrict ? DOM.shipDistrict.value : '';
+    let distTxt = '';
+    if (selDist) {
+      const parts = selDist.split('|');
+      if (parts.length >= 2) distTxt = `📍 Envío para: ${parts[1]}\n`;
+    }
     const msg = encodeURIComponent(
       `Hola Barra! 👋 Vi su catálogo y me interesa:\n\n` +
       `📦 *${p.name}* (${p.code})\n` +
       `💰 Precio: S/ ${p.price}\n` +
-      `🎨 Colores disponibles: ${p.colores && p.colores.length ? p.colores.join(', ') : 'consultar'}\n\n` +
-      `¿Está disponible? ¿Puedo apartarlo hoy?`
+      distTxt +
+      `🎨 Colores: ${p.colores && p.colores.length ? p.colores.join(', ') : 'consultar'}\n\n` +
+      `¿Está disponible? Quisiera separar mi modelo con el adelanto de S/ 20.`
     );
     window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank', 'noopener,noreferrer');
   };
@@ -2079,27 +2131,46 @@ function switchShipTab(tab) {
 function evalDistrict() {
   const val = DOM.shipDistrict.value;
   if (!val) { DOM.shipResult.style.display = 'none'; return; }
-  const [tipo, nombre, costo] = val.split('|');
-  DOM.shipResult.className = 'ship-result ' + tipo;
-  if (tipo === 'cerca') {
-    DOM.shipResult.innerHTML =
-      `<div class="ship-result-header">🛵 InDriver — Entrega a domicilio<span class="ship-result-badge indriver">InDriver</span></div>` +
-      `<ul class="ship-result-steps">` +
-        `<li>Pagas el <strong>producto completo</strong> al confirmar el pedido.</li>` +
-        `<li>El motorizado llega a tu dirección en <strong>${esc(nombre)}</strong>.</li>` +
-        `<li>El <strong>costo del envío</strong> se paga al motorizado al recibir.</li>` +
-      `</ul>` +
-      `<div class="ship-result-cost">🚚 Envío aprox: <strong>S/ ${esc(costo)}</strong> <span style="font-size:.65rem;color:var(--muted)">(sujeto a tráfico)</span></div>`;
-  } else {
-    DOM.shipResult.innerHTML =
-      `<div class="ship-result-header">📦 Shalom — Recojo en agencia<span class="ship-result-badge shalom">Shalom</span></div>` +
-      `<ul class="ship-result-steps">` +
-        `<li>Pagas el <strong>50% del producto</strong> al confirmar.</li>` +
-        `<li>El saldo (50%) + costo de envío al <strong>recoger en tu agencia</strong>.</li>` +
-        `<li><strong>Avísanos con anticipación</strong> para coordinar la clave de recojo.</li>` +
-      `</ul>` +
-      `<div class="ship-result-cost">💡 Por InDriver a <strong>${esc(nombre)}</strong> costaría S/ ${esc(costo)} aprox — Shalom es más económico.</div>`;
-  }
+  const [zona, nombre, costoStr] = val.split('|');
+  const costoNum = parseInt(costoStr, 10) || 10;
+  const pPrice = currentProduct ? currentProduct.price : 100;
+  const isFreeShip = pPrice >= 250;
+  const envioFinal = isFreeShip ? 0 : costoNum;
+  const adelanto = pPrice >= 20 ? 20 : pPrice;
+  const saldoProducto = pPrice - adelanto;
+  const totalContraEntrega = saldoProducto + envioFinal;
+
+  DOM.shipResult.className = 'ship-result';
+  DOM.shipResult.innerHTML =
+    `<div class="ship-result-header">` +
+      `<span class="ship-result-title">🛵 Courier a Domicilio — <strong>${esc(nombre)}</strong></span>` +
+      `<span class="ship-result-badge">Contra Entrega</span>` +
+    `</div>` +
+    `<div class="ship-result-schedule">` +
+      `⏰ <strong>Horario de entrega:</strong> 2:00 pm a 7:00 pm (mismo día o programado)` +
+    `</div>` +
+    `<div class="ship-calc-box">` +
+      `<div class="ship-calc-row">` +
+        `<span>Precio del modelo:</span>` +
+        `<strong>S/ ${pPrice}</strong>` +
+      `</div>` +
+      `<div class="ship-calc-row highlight-advance">` +
+        `<span>🔒 Adelanto de compromiso (para separar):</span>` +
+        `<strong class="text-advance">S/ ${adelanto}</strong>` +
+      `</div>` +
+      `<div class="ship-calc-row">` +
+        `<span>🚚 Costo de envío (${esc(nombre)}):</span>` +
+        `<strong>${isFreeShip ? '<span class="free-ship-tag">¡GRATIS! (Compra &ge; S/ 250)</span>' : 'S/ ' + envioFinal + '.00'}</strong>` +
+      `</div>` +
+      `<div class="ship-calc-total">` +
+        `<span>💵 Saldo a pagar al recibir (al courier):</span>` +
+        `<strong class="total-amount">S/ ${totalContraEntrega}</strong>` +
+      `</div>` +
+    `</div>` +
+    `<div class="ship-note-small">` +
+      `✅ Separas tu producto con solo <strong>S/ ${adelanto}</strong> (Yape / Plin / Transferencia) para confirmar tu pedido. El saldo de <strong>S/ ${totalContraEntrega}</strong> lo cancelas al motorizado en efectivo o Yape/Plin al recibir entre 2:00 pm y 7:00 pm.` +
+    `</div>`;
+
   DOM.shipResult.style.display = '';
   const mi = document.querySelector('.modal-info');
   if (mi) setTimeout(() => {
