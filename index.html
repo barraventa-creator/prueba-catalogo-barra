@@ -155,16 +155,7 @@ header{
 .stat-num{font-size:1.9rem;color:#fff;font-weight:700;line-height:1.1}
 .stat-label{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#aaa;margin-top:4px}
 
-.hero-quick-cats{margin-top:20px;display:flex;flex-direction:column;gap:8px}
-.quick-cats-label{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#aaa;font-weight:600}
-.quick-chips{display:flex;gap:7px;flex-wrap:wrap}
-.quick-chip{
-  background:#1a1a1a;color:#fff;border:1.5px solid #333;
-  padding:6px 12px;font-family:'Fredoka',sans-serif;font-size:.72rem;letter-spacing:.06em;
-  border-radius:4px;cursor:pointer;transition:all .18s;
-  display:inline-flex;align-items:center;gap:5px;
-}
-.quick-chip:hover{background:#fff;color:var(--negro);border-color:#fff;font-weight:600}
+
 
 .hero-right{
   position:relative;z-index:1;display:flex;flex-direction:column;
@@ -567,6 +558,7 @@ input[type=text]::placeholder{color:#777;font-size:.85rem}
 /* ── BADGE FUEGUITO ROJO ── */
 .badge-fire{
   background:#fff;
+  border:1px solid var(--negro);
   border-radius:50%;
   width:20px;
   height:20px;
@@ -587,11 +579,11 @@ input[type=text]::placeholder{color:#777;font-size:.85rem}
   align-items:center;
   gap:6px;
   background:linear-gradient(135deg,var(--rojo-oscuro) 0%,var(--rojo) 100%);
-  border:1.5px solid #fff;
+  border:1.5px solid var(--negro);
   color:#fff;
   padding:3px 10px 3px 3px;
   border-radius:20px;
-  box-shadow:0 4px 14px rgba(168,25,25,.4),0 2px 6px rgba(0,0,0,.25);
+  box-shadow:0 3px 10px rgba(0,0,0,.25);
   pointer-events:none;
 }
 .liq-badge-img .badge-amount{
@@ -608,12 +600,12 @@ input[type=text]::placeholder{color:#777;font-size:.85rem}
   gap:7px;
   margin-left:12px;
   background:linear-gradient(135deg,var(--rojo-oscuro) 0%,var(--rojo) 100%);
-  border:1.5px solid #fff;
+  border:1.5px solid var(--negro);
   color:#fff;
   padding:4px 12px 4px 4px;
   vertical-align:middle;
   border-radius:20px;
-  box-shadow:0 4px 14px rgba(168,25,25,.35),0 2px 6px rgba(0,0,0,.2);
+  box-shadow:0 3px 10px rgba(0,0,0,.2);
 }
 .modal-discount-badge .badge-fire{
   width:23px;
@@ -1117,16 +1109,7 @@ body.modal-open{overflow:hidden}
         </div>
       </div>
 
-      <div class="hero-quick-cats">
-        <span class="quick-cats-label">Categorías destacadas:</span>
-        <div class="quick-chips">
-          <button type="button" class="quick-chip" onclick="quickSelectCat('Liquidacion')">🔥 Liquidación</button>
-          <button type="button" class="quick-chip" onclick="quickSelectCat('Mochila')">🎒 Mochilas</button>
-          <button type="button" class="quick-chip" onclick="quickSelectCat('Billetera Hombre')">💵 Billeteras</button>
-          <button type="button" class="quick-chip" onclick="quickSelectCat('Cartera')">👜 Carteras</button>
-          <button type="button" class="quick-chip" onclick="quickSelectCat('Bolso de Viaje')">🧳 Viaje</button>
-        </div>
-      </div>
+
     </div>
 
     <div class="hero-right">
