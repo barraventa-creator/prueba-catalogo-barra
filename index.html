@@ -892,55 +892,33 @@ body.modal-open{overflow:hidden}
   outline:none;cursor:pointer;transition:border-color .2s;margin-bottom:10px;border-radius:4px;
 }
 .ship-select:focus{border-color:var(--negro)}
-.ship-result{padding:14px;border:1.5px solid var(--negro);border-radius:4px;background:#fff}
-.ship-result-header{
-  display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.84rem;font-weight:700;
-  color:var(--negro);margin-bottom:8px;flex-wrap:wrap;
+.ship-top-banner{
+  background:var(--fondo-suave);padding:9px 14px;font-size:.76rem;font-weight:700;
+  letter-spacing:.05em;color:var(--negro);text-align:center;border-bottom:1.5px solid var(--negro);
 }
-.ship-result-title{display:flex;align-items:center;gap:6px}
-.ship-result-badge{display:inline-flex;align-items:center;padding:3px 9px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;font-weight:700;background:var(--negro);color:#fff}
-.ship-result-schedule{
+.ship-schedule-pill{
   background:var(--fondo-suave);border:1.5px solid var(--negro);border-radius:4px;
-  padding:8px 12px;font-size:.8rem;margin-bottom:10px;color:var(--negro);
-  display:flex;align-items:center;gap:6px;
+  padding:8px 12px;font-size:.76rem;color:var(--negro);margin-bottom:10px;line-height:1.4;
 }
-.ship-calc-box{
-  background:#fafafa;border:1.5px solid var(--negro);border-radius:4px;
-  padding:12px 14px;display:flex;flex-direction:column;gap:7px;margin-bottom:8px;
+.ship-result-minimal{
+  border:1.5px solid var(--negro);border-radius:4px;padding:10px 12px;background:#fafafa;
+  display:flex;flex-direction:column;gap:6px;
 }
-.ship-calc-row{
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:.82rem;color:var(--negro);
+.ship-result-line{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--negro)}
+.ship-result-total{
+  padding-top:6px;margin-top:2px;border-top:1.5px solid var(--negro);font-size:.86rem;font-weight:700;
 }
-.ship-calc-row.highlight-advance{
-  padding:6px 8px;background:#f0fdf4;border:1px solid #86efac;
-  border-radius:3px;color:#15803d;font-weight:600;
-}
-.text-advance{color:#15803d;font-weight:700}
-.free-ship-tag{
-  background:#15803d;color:#fff;font-size:.64rem;font-weight:700;
-  padding:2px 7px;border-radius:3px;letter-spacing:.05em;
-}
-.ship-calc-total{
-  display:flex;justify-content:space-between;align-items:center;
-  padding-top:8px;margin-top:2px;border-top:1.5px solid var(--negro);
-  font-size:.88rem;font-weight:700;color:var(--negro);
-}
-.total-amount{font-size:1.25rem;font-weight:800;color:var(--negro)}
-.ship-note-small{font-size:.74rem;line-height:1.5;color:#444;margin-top:6px}
+.total-amount{font-size:1.15rem;font-weight:800;color:var(--negro)}
+.free-ship-tag{background:#15803d;color:#fff;font-size:.64rem;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.05em}
 
-.ship-prov-intro{
-  padding:10px 12px;background:var(--fondo-suave);border:1.5px solid var(--negro);
-  border-radius:4px;font-size:.78rem;line-height:1.5;margin-bottom:12px;color:var(--negro);
-}
-.ship-prov-cards{display:flex;flex-direction:column;gap:8px}
-.ship-prov-card{padding:12px 14px;border:1.5px solid var(--negro);position:relative;background:#fff;border-radius:4px}
-.ship-prov-badge{position:absolute;top:10px;right:10px;background:var(--negro);color:#fff;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:2px;font-weight:700}
-.ship-prov-name{font-size:.88rem;font-weight:700;color:var(--negro);margin-bottom:4px;display:flex;align-items:center;gap:6px}
-.ship-prov-desc{font-size:.74rem;color:var(--muted);letter-spacing:.01em;line-height:1.45;margin-bottom:6px}
-.ship-steps-clean{list-style:none;margin-top:6px;display:flex;flex-direction:column;gap:5px}
-.ship-steps-clean li{font-size:.73rem;line-height:1.45;color:#222;padding-left:14px;position:relative}
-.ship-steps-clean li::before{content:'•';position:absolute;left:2px;color:var(--negro);font-weight:bold}
+/* Minimalist Provincia */
+.ship-agency-list{display:flex;flex-direction:column;gap:8px}
+.ship-agency-item{border:1.5px solid var(--negro);border-radius:4px;padding:10px 12px;background:#fff}
+.ship-agency-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.ship-agency-title{font-size:.84rem;font-weight:700;color:var(--negro)}
+.ship-agency-badge{font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--negro);color:#fff;padding:2px 7px;border-radius:2px}
+.ship-agency-desc{font-size:.72rem;color:#555;line-height:1.45;margin:0}
+.ship-agency-extra{margin-top:10px;font-size:.7rem;color:var(--muted);line-height:1.4;text-align:center}
 
 /* ── RESPONSIVE Y VISTA CELULAR CON TÍTULO Y VIDEO PERFECTOS ── */
 @media(max-width:900px){
@@ -1095,10 +1073,10 @@ body.modal-open{overflow:hidden}
 </a>
 
 <div class="shipping-bar">
-  <span>🚚 <strong>Lima:</strong> Courier contra entrega (2 a 7 pm) · <strong>Provincias:</strong> Shalom / Olva · <strong>Envío GRATIS</strong> desde S/ 250</span>
+  <span>🚚 Separa tu producto con tan solo S/ 20 · <strong>Envío GRATIS</strong> desde S/ 250</span>
 </div>
 
-<div class="topbar">Envíos a todo el Perú · Separa tu modelo con solo S/ 20 de adelanto</div>
+<div class="topbar">Envíos diarios a todo el Perú · Arte &amp; Estilo Barra</div>
 
 <header>
   <div class="header-top">
@@ -1219,15 +1197,20 @@ body.modal-open{overflow:hidden}
           <svg class="m-ship-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="m-ship-body" id="mShipBody">
+          <div class="ship-top-banner">
+            🔒 Separa tu producto con tan solo S/ 20
+          </div>
           <div class="ship-tab-bar">
-            <button class="ship-tab active" id="shipTabBtn1" onclick="switchShipTab('lima')">📍 Lima (Courier 2 a 7 pm)</button>
-            <button class="ship-tab" id="shipTabBtn2" onclick="switchShipTab('provincia')">🌎 Provincia (Shalom / Olva)</button>
+            <button class="ship-tab active" id="shipTabBtn1" onclick="switchShipTab('lima')">LIMA</button>
+            <button class="ship-tab" id="shipTabBtn2" onclick="switchShipTab('provincia')">PROVINCIA</button>
           </div>
           <div id="shipPanelLima" class="ship-tab-content">
-            <p class="ship-note">Elige tu distrito para ver la tarifa del courier y el monto a pagar al recibir:</p>
+            <div class="ship-schedule-pill">
+              🛵 <strong>Courier a Domicilio:</strong> Entregas de <strong>2:00 pm a 7:00 pm</strong> (Pago contra entrega al recibir)
+            </div>
             <select class="ship-select" id="shipDistrict" onchange="evalDistrict()">
-              <option value="">— Selecciona tu distrito en Lima / Callao —</option>
-              <optgroup label="Zona Centro — Tarifa S/ 10.00">
+              <option value="">— Selecciona tu distrito —</option>
+              <optgroup label="Zona Centro — S/ 10.00">
                 <option value="centro|Lima (Centro)|10">Lima (Centro) — S/ 10.00</option>
                 <option value="centro|Breña|10">Breña — S/ 10.00</option>
                 <option value="centro|Jesús María|10">Jesús María — S/ 10.00</option>
@@ -1238,14 +1221,14 @@ body.modal-open{overflow:hidden}
                 <option value="centro|Miraflores|10">Miraflores — S/ 10.00</option>
                 <option value="centro|Surquillo|10">Surquillo — S/ 10.00</option>
               </optgroup>
-              <optgroup label="Zona Norte — Tarifa S/ 10.00">
+              <optgroup label="Zona Norte — S/ 10.00">
                 <option value="norte|Los Olivos|10">Los Olivos — S/ 10.00</option>
                 <option value="norte|Comas|10">Comas — S/ 10.00</option>
                 <option value="norte|Independencia|10">Independencia — S/ 10.00</option>
                 <option value="norte|San Martín de Porres|10">San Martín de Porres — S/ 10.00</option>
                 <option value="norte|Rímac|10">Rímac — S/ 10.00</option>
               </optgroup>
-              <optgroup label="Zona Este — Tarifa S/ 10.00">
+              <optgroup label="Zona Este — S/ 10.00">
                 <option value="este|Ate (Entrada)|10">Ate (Entrada) — S/ 10.00</option>
                 <option value="este|San Luis|10">San Luis — S/ 10.00</option>
                 <option value="este|El Agustino|10">El Agustino — S/ 10.00</option>
@@ -1253,14 +1236,14 @@ body.modal-open{overflow:hidden}
                 <option value="este|San Juan de Lurigancho|10">San Juan de Lurigancho — S/ 10.00</option>
                 <option value="este|Santa Anita|10">Santa Anita — S/ 10.00</option>
               </optgroup>
-              <optgroup label="Zona Oeste / Callao — Tarifa S/ 10.00">
+              <optgroup label="Zona Oeste / Callao — S/ 10.00">
                 <option value="oeste|San Miguel|10">San Miguel — S/ 10.00</option>
                 <option value="oeste|Magdalena|10">Magdalena — S/ 10.00</option>
                 <option value="oeste|Callao|10">Callao — S/ 10.00</option>
                 <option value="oeste|Carmen de la Legua|10">Carmen de la Legua — S/ 10.00</option>
                 <option value="oeste|La Perla|10">La Perla — S/ 10.00</option>
               </optgroup>
-              <optgroup label="Zona Sur — Tarifa S/ 10.00">
+              <optgroup label="Zona Sur — S/ 10.00">
                 <option value="sur|San Borja|10">San Borja — S/ 10.00</option>
                 <option value="sur|Barranco|10">Barranco — S/ 10.00</option>
                 <option value="sur|Chorrillos|10">Chorrillos — S/ 10.00</option>
@@ -1284,36 +1267,26 @@ body.modal-open{overflow:hidden}
                 <option value="especial|Ancón|20">Ancón — S/ 20.00</option>
               </optgroup>
             </select>
-            <div class="ship-result" id="shipResult" style="display:none"></div>
+            <div id="shipResult" style="display:none"></div>
           </div>
           <div id="shipPanelProvincia" class="ship-tab-content" style="display:none">
-            <div class="ship-prov-intro">
-              📦 <strong>Envíos a todo el Perú:</strong> Separas tu modelo con un adelanto de <strong>S/ 20</strong> de compromiso. Sin porcentajes confusos.
+            <div class="ship-agency-list">
+              <div class="ship-agency-item">
+                <div class="ship-agency-header">
+                  <span class="ship-agency-title">📦 Agencia Shalom</span>
+                  <span class="ship-agency-badge">Recomendado</span>
+                </div>
+                <p class="ship-agency-desc">Envíos a todo el Perú con guía de seguimiento y foto de tu paquete. El flete lo cancelas en ventanilla al recoger.</p>
+              </div>
+              <div class="ship-agency-item">
+                <div class="ship-agency-header">
+                  <span class="ship-agency-title">🚚 Olva Courier</span>
+                </div>
+                <p class="ship-agency-desc">Envíos directos a domicilio o agencia en cualquier ciudad del país.</p>
+              </div>
             </div>
-            <div class="ship-prov-cards">
-              <div class="ship-prov-card ship-prov-primary">
-                <div class="ship-prov-badge">Recomendado</div>
-                <div class="ship-prov-name">📦 Agencia Shalom (Todo el Perú)</div>
-                <div class="ship-prov-desc">La opción más rápida y económica para provincias y departamentos.</div>
-                <ul class="ship-steps-clean">
-                  <li><strong>1. Separas con S/ 20:</strong> Tu producto queda apartado y se procede al embalaje.</li>
-                  <li><strong>2. Foto y voucher:</strong> Te enviamos foto de tu paquete rotulado con su guía de despacho oficial.</li>
-                  <li><strong>3. Saldo del producto:</strong> Cancelas el saldo restante antes de retirar.</li>
-                  <li><strong>4. Pago de flete en ventanilla:</strong> El costo de envío se paga directamente a Shalom al momento de recoger tu paquete.</li>
-                </ul>
-              </div>
-              <div class="ship-prov-card">
-                <div class="ship-prov-name">🚚 Olva Courier (A Domicilio o Agencia)</div>
-                <div class="ship-prov-desc">Llega directo a tu puerta o agencia Olva en cualquier ciudad.</div>
-                <ul class="ship-steps-clean">
-                  <li><strong>1. Separas con S/ 20:</strong> Apartamos tu modelo inmediatamente.</li>
-                  <li><strong>2. Coordinación:</strong> Por WhatsApp coordinamos la dirección exacta y costo de flete según destino.</li>
-                </ul>
-              </div>
-              <div class="ship-prov-card">
-                <div class="ship-prov-name">🛵 Zonas de Lima fuera de cobertura</div>
-                <div class="ship-prov-desc">Si vives en balnearios o zonas sin cobertura directa de motorizado local, te lo enviamos por <strong>Agencia Shalom u Olva</strong> con la misma facilidad y solo <strong>S/ 20</strong> de adelanto.</div>
-              </div>
+            <div class="ship-agency-extra">
+              🛵 <em>Zonas de Lima fuera de cobertura de motorizado se envían por Shalom u Olva.</em>
             </div>
           </div>
         </div>
@@ -2140,35 +2113,16 @@ function evalDistrict() {
   const saldoProducto = pPrice - adelanto;
   const totalContraEntrega = saldoProducto + envioFinal;
 
-  DOM.shipResult.className = 'ship-result';
   DOM.shipResult.innerHTML =
-    `<div class="ship-result-header">` +
-      `<span class="ship-result-title">🛵 Courier a Domicilio — <strong>${esc(nombre)}</strong></span>` +
-      `<span class="ship-result-badge">Contra Entrega</span>` +
-    `</div>` +
-    `<div class="ship-result-schedule">` +
-      `⏰ <strong>Horario de entrega:</strong> 2:00 pm a 7:00 pm (mismo día o programado)` +
-    `</div>` +
-    `<div class="ship-calc-box">` +
-      `<div class="ship-calc-row">` +
-        `<span>Precio del modelo:</span>` +
-        `<strong>S/ ${pPrice}</strong>` +
-      `</div>` +
-      `<div class="ship-calc-row highlight-advance">` +
-        `<span>🔒 Adelanto de compromiso (para separar):</span>` +
-        `<strong class="text-advance">S/ ${adelanto}</strong>` +
-      `</div>` +
-      `<div class="ship-calc-row">` +
+    `<div class="ship-result-minimal">` +
+      `<div class="ship-result-line">` +
         `<span>🚚 Costo de envío (${esc(nombre)}):</span>` +
-        `<strong>${isFreeShip ? '<span class="free-ship-tag">¡GRATIS! (Compra &ge; S/ 250)</span>' : 'S/ ' + envioFinal + '.00'}</strong>` +
+        `<strong>${isFreeShip ? '<span class="free-ship-tag">¡GRATIS!</span>' : 'S/ ' + envioFinal + '.00'}</strong>` +
       `</div>` +
-      `<div class="ship-calc-total">` +
-        `<span>💵 Saldo a pagar al recibir (al courier):</span>` +
+      `<div class="ship-result-line ship-result-total">` +
+        `<span>💵 Saldo a pagar al recibir:</span>` +
         `<strong class="total-amount">S/ ${totalContraEntrega}</strong>` +
       `</div>` +
-    `</div>` +
-    `<div class="ship-note-small">` +
-      `✅ Separas tu producto con solo <strong>S/ ${adelanto}</strong> (Yape / Plin / Transferencia) para confirmar tu pedido. El saldo de <strong>S/ ${totalContraEntrega}</strong> lo cancelas al motorizado en efectivo o Yape/Plin al recibir entre 2:00 pm y 7:00 pm.` +
     `</div>`;
 
   DOM.shipResult.style.display = '';
