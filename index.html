@@ -1401,15 +1401,13 @@ footer a { color: #fff; text-decoration: none; }
 .back-to-top svg { width: 18px; height: 18px; fill: currentColor; }
 
 /* ══════════════════════════════════════════════════════════════════════
-   ── MODO NOCHE: BORDES Y RAYAS BLANCOS + FONDOS BLANCO Y NEGRO PURO ──
+   ── MODO NOCHE: PARTE SUPERIOR SUTIL COMO ANTES (FOTO 1) + RAYAS BLANCAS EN PRODUCTOS (FOTO 2) ──
    ══════════════════════════════════════════════════════════════════════ */
 body.dark-theme {
   --fondo-pagina: #000000;
   --fondo-tarjeta: #101010;
-  --borde-principal: #ffffff;    /* ¡BORDES BLANCOS NOTABLES EN NOCHE! */
-  --raya-divisoria: #ffffff;     /* ¡RAYAS DIVISORIAS BLANCAS NOTABLES EN NOCHE! */
   --texto-principal: #ffffff;
-  --texto-secundario: #ffffff;
+  --texto-secundario: #cccccc;
   background: #000000 !important;
   color: #ffffff !important;
 }
@@ -1417,62 +1415,61 @@ body.dark-theme {
 body.dark-theme .topbar {
   background: #0d0d0d !important;
   color: #ffffff !important;
-  border-bottom: 1.5px solid #ffffff !important;
+  border-bottom: 1.5px solid #222222 !important;
 }
 
 body.dark-theme .shipping-bar {
   background: #141414 !important;
-  border-bottom: 1.5px solid #ffffff !important;
+  border-bottom: 1.5px solid #222222 !important;
   color: #ffffff !important;
 }
 
 body.dark-theme header {
   background: #000000 !important;
-  border-bottom: 1.5px solid #ffffff !important;
+  border-bottom: 1.5px solid #222222 !important;
 }
 
 body.dark-theme .theme-toggle-btn {
   background: #171717 !important;
-  border-color: #ffffff !important;
+  border-color: #383838 !important;
   color: #ffffff !important;
 }
 body.dark-theme .theme-toggle-btn:hover {
-  background: #ffffff !important;
-  color: #000000 !important;
+  background: #262626 !important;
   border-color: #ffffff !important;
 }
 
 body.dark-theme .hero {
   background: #050505 !important;
-  border-bottom: 2px solid #ffffff !important;
+  border-bottom: 2px solid #222222 !important;
 }
 
 body.dark-theme .hero-eyebrow { color: #ffffff !important; }
 body.dark-theme .eyebrow-pill {
   background: #1a1a1a !important;
-  border-color: #ffffff !important;
+  border-color: #444444 !important;
   color: #ffffff !important;
 }
 body.dark-theme .hero-title { color: #ffffff !important; }
-body.dark-theme .hero-desc { color: #ffffff !important; }
-body.dark-theme .hero-stats { border-top: 1.5px solid #ffffff !important; }
+body.dark-theme .hero-desc { color: #d0d0d0 !important; }
+body.dark-theme .hero-stats { border-top: 1px solid #222222 !important; }
 body.dark-theme .stat-num { color: #ffffff !important; }
-body.dark-theme .stat-label { color: #ffffff !important; }
+body.dark-theme .stat-label { color: #aaaaaa !important; }
 
-body.dark-theme .cat-grid-header { border-bottom: 1.5px solid #ffffff !important; }
+body.dark-theme .cat-grid-header { border-bottom: 1px solid #222222 !important; }
 body.dark-theme .cat-grid-title { color: #ffffff !important; }
 body.dark-theme .cat-grid-title::before { background: #ffffff !important; }
-body.dark-theme .cat-grid-sub { color: #ffffff !important; opacity: 0.9; }
+body.dark-theme .cat-grid-sub { color: #aaaaaa !important; }
 
-/* Botones de categorías en modo noche: BORDES BLANCOS */
+/* Botones de categorías en modo noche: sutiles sin rayas blancas agresivas */
 body.dark-theme .cat-tile {
   background: #121212 !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #282828 !important;
   color: #ffffff !important;
 }
 body.dark-theme .cat-tile span { color: #ffffff !important; }
 body.dark-theme .cat-tile:hover {
-  background: #252525 !important;
+  background: #222222 !important;
   border-color: #ffffff !important;
   color: #ffffff !important;
 }
@@ -1487,48 +1484,48 @@ body.dark-theme .cat-tile.active::after { background: #000000 !important; }
 
 body.dark-theme .cat-tile[data-cat="Liquidacion"] {
   background: #1c0a0a !important;
-  border-color: var(--rojo) !important;
+  border-color: #dc2626 !important;
   color: #ff5555 !important;
 }
 body.dark-theme .cat-tile[data-cat="Liquidacion"]:hover {
   background: #2e0f0f !important;
-  border-color: #ff5555 !important;
+  border-color: #ff4444 !important;
   color: #ffffff !important;
 }
 body.dark-theme .cat-tile[data-cat="Liquidacion"].active {
-  background: var(--rojo) !important;
-  border-color: var(--rojo) !important;
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
   color: #ffffff !important;
 }
 body.dark-theme .cat-tile[data-cat="Liquidacion"].active span { color: #ffffff !important; }
 
-/* Barra de filtros en modo noche: BORDES Y RAYAS BLANCAS */
+/* Barra de filtros en modo noche: limpia y elegante como antes */
 body.dark-theme .filter-bar {
   background: #0a0a0a !important;
   color: #ffffff !important;
-  border-bottom: 2px solid #ffffff !important;
+  border-bottom: 2px solid #222222 !important;
 }
 
 body.dark-theme .sort-label { color: #ffffff !important; }
 
 body.dark-theme .search-wrap {
   background: #161616 !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #2e2e2e !important;
 }
 
 body.dark-theme input[type=text] {
   background: #161616 !important;
   color: #ffffff !important;
 }
-body.dark-theme input[type=text]::placeholder { color: #999999 !important; }
+body.dark-theme input[type=text]::placeholder { color: #888888 !important; }
 
 body.dark-theme .search-icon {
-  background: #ffffff !important;
+  background: #222222 !important;
 }
-body.dark-theme .search-icon svg { stroke: #000000 !important; }
+body.dark-theme .search-icon svg { stroke: #ffffff !important; }
 
-body.dark-theme .search-clear-btn { color: #ffffff !important; }
-body.dark-theme .search-clear-btn:hover { color: #ff5555 !important; }
+body.dark-theme .search-clear-btn { color: #cccccc !important; }
+body.dark-theme .search-clear-btn:hover { color: #ffffff !important; }
 
 body.dark-theme .sort-btn,
 body.dark-theme .btn-limpiar,
@@ -1536,7 +1533,7 @@ body.dark-theme .results-info,
 body.dark-theme .view-toggle {
   background: #161616 !important;
   color: #ffffff !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #2e2e2e !important;
 }
 
 body.dark-theme .results-info b { color: #ffffff !important; }
@@ -1560,19 +1557,19 @@ body.dark-theme .grid {
   background: #000000 !important;
 }
 
-/* ── TARJETAS EN MODO NOCHE: BORDES Y RAYAS BLANCAS ── */
+/* ── PRODUCTOS EN MODO NOCHE (FOTO 2): BORDES BLANCOS Y RAYAS BLANCAS DE SEPARACIÓN ── */
 body.dark-theme .card {
   background: #101010 !important;
   border: 1.5px solid #ffffff !important;
   box-shadow: 0 4px 14px rgba(0,0,0,.85) !important;
 }
 body.dark-theme .card:hover {
-  box-shadow: 0 12px 32px rgba(255,255,255,.16) !important;
+  box-shadow: 0 14px 36px rgba(255,255,255,.16) !important;
   border-color: #ffffff !important;
   transform: translateY(-3px);
 }
 
-/* Raya blanca divisoria bajo la foto */
+/* Raya blanca divisoria bajo la foto del producto (Foto 2) */
 body.dark-theme .card-img {
   background: #080808 !important;
   border-bottom: 1.5px solid #ffffff !important;
@@ -1600,7 +1597,7 @@ body.dark-theme .card-name {
   font-weight: 700;
 }
 
-/* Raya blanca divisoria sobre el precio */
+/* Raya blanca divisoria sobre el precio (Foto 2) */
 body.dark-theme .card-footer {
   border-top: 1.5px solid #ffffff !important;
 }
@@ -1626,56 +1623,56 @@ body.dark-theme .card-hover-label {
   border: 1.5px solid #ffffff !important;
 }
 
-/* ── TESTIMONIOS NOCHE: BORDES BLANCOS ── */
+/* ── SECCIONES INFERIORES: BORDES DISCRETOS COMO ANTES ── */
 body.dark-theme .trust-section {
   background: #080808 !important;
-  border-top: 2px solid #ffffff !important;
-  border-bottom: 2px solid #ffffff !important;
+  border-top: 2px solid #222222 !important;
+  border-bottom: 2px solid #222222 !important;
 }
 body.dark-theme .trust-title { color: #ffffff !important; }
 body.dark-theme .trust-item {
   background: #141414 !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #262626 !important;
 }
 body.dark-theme .trust-label { color: #ffffff !important; }
-body.dark-theme .trust-sub { color: #ffffff !important; opacity: 0.9; }
+body.dark-theme .trust-sub { color: #bbbbbb !important; }
 
 body.dark-theme .empty h3 { color: #ffffff !important; }
-body.dark-theme .empty p { color: #ffffff !important; }
-body.dark-theme .empty { border-color: #ffffff !important; }
+body.dark-theme .empty p { color: #cccccc !important; }
+body.dark-theme .empty { border-color: #2c2c2c !important; }
 
-/* ── MODAL NOCHE: BORDES Y RAYAS BLANCAS ── */
+/* ── MODAL NOCHE ── */
 body.dark-theme .overlay {
   background: rgba(0, 0, 0, 0.92) !important;
 }
 body.dark-theme .modal {
   background: #121212 !important;
-  border: 2px solid #ffffff !important;
+  border: 2px solid #333333 !important;
   box-shadow: 0 24px 64px rgba(0,0,0,.95) !important;
 }
 body.dark-theme .modal-media-header {
-  border-bottom: 1.5px solid #ffffff !important;
+  border-bottom: 1.5px solid #222222 !important;
 }
 body.dark-theme .modal-info { background: #121212 !important; }
 body.dark-theme .m-name { color: #ffffff !important; }
 
-/* Raya blanca del modal */
+/* Divisor del modal */
 body.dark-theme .m-divider {
-  background: #ffffff !important;
-  height: 2px !important;
+  background: #262626 !important;
+  height: 1.5px !important;
 }
 body.dark-theme .modal-price-val { color: #ffffff !important; }
 body.dark-theme .modal-price-old,
-body.dark-theme .modal-price-old s { color: #ffffff !important; opacity: 0.9; }
+body.dark-theme .modal-price-old s { color: #ffffff !important; opacity: 0.85; }
 body.dark-theme #imgArea { background: #080808 !important; }
 
 body.dark-theme .spec {
   background: #1a1a1a !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .spec-l {
   color: #ffffff !important;
-  font-weight: 700;
+  opacity: 0.85;
 }
 body.dark-theme .spec-v {
   color: #ffffff !important;
@@ -1687,11 +1684,11 @@ body.dark-theme .color-consulta:hover { color: #6bf2a3 !important; }
 body.dark-theme .m-recs-label { color: #ffffff !important; }
 body.dark-theme .m-rec-card {
   background: #181818 !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .m-rec-img {
   background: #0a0a0a !important;
-  border-bottom: 1.5px solid #ffffff !important;
+  border-bottom: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .m-rec-code { color: #ffffff !important; }
 body.dark-theme .m-rec-name { color: #ffffff !important; }
@@ -1701,12 +1698,12 @@ body.dark-theme .m-rec-price small { color: #ffffff !important; }
 body.dark-theme .btn-share {
   background: #1c1c1c !important;
   color: #ffffff !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #333333 !important;
 }
 body.dark-theme .btn-share:hover { background: #2a2a2a !important; }
 
-/* ── ENVÍOS NOCHE: BORDES Y RAYAS BLANCAS ── */
-body.dark-theme .m-ship-section { border: 1.5px solid #ffffff !important; }
+/* ── ENVÍOS NOCHE ── */
+body.dark-theme .m-ship-section { border: 1.5px solid #2c2c2c !important; }
 body.dark-theme .m-ship-toggle {
   background: #1a1a1a !important;
   color: #ffffff !important;
@@ -1716,10 +1713,10 @@ body.dark-theme .m-ship-body { background: #121212 !important; }
 body.dark-theme .ship-top-banner {
   background: #1a1a1a !important;
   color: #ffffff !important;
-  border-bottom: 1.5px solid #ffffff !important;
+  border-bottom: 1.5px solid #2c2c2c !important;
 }
-body.dark-theme .ship-tab-bar { border-bottom: 1.5px solid #ffffff !important; }
-body.dark-theme .ship-tab { color: #cccccc !important; }
+body.dark-theme .ship-tab-bar { border-bottom: 1.5px solid #2c2c2c !important; }
+body.dark-theme .ship-tab { color: #aaaaaa !important; }
 body.dark-theme .ship-tab.active {
   color: #ffffff !important;
   border-bottom-color: #ffffff !important;
@@ -1731,42 +1728,43 @@ body.dark-theme .ship-tab:hover:not(.active) {
 }
 body.dark-theme .ship-schedule-pill {
   background: #1a1a1a !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #2c2c2c !important;
   color: #ffffff !important;
 }
 body.dark-theme .ship-select {
   background: #1a1a1a !important;
   color: #ffffff !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .ship-result-minimal {
   background: #161616 !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .ship-result-line { color: #ffffff !important; }
-body.dark-theme .ship-result-total { border-top: 1.5px solid #ffffff !important; }
+body.dark-theme .ship-result-total { border-top: 1.5px solid #2c2c2c !important; }
 body.dark-theme .total-amount { color: #ffffff !important; }
 
 body.dark-theme .ship-agency-item {
   background: #1a1a1a !important;
-  border: 1.5px solid #ffffff !important;
+  border: 1.5px solid #2c2c2c !important;
 }
 body.dark-theme .ship-agency-title { color: #ffffff !important; }
-body.dark-theme .ship-agency-desc { color: #ffffff !important; opacity: 0.9; }
+body.dark-theme .ship-agency-desc { color: #cccccc !important; }
 body.dark-theme .ship-agency-badge {
   background: #ffffff !important;
   color: #000000 !important;
 }
 
-body.dark-theme .map-section { background: #000000 !important; border-bottom: 2px solid #ffffff !important; }
-body.dark-theme .map-wrap { border: 2px solid #ffffff !important; }
-body.dark-theme footer { background: #000000 !important; border-top: 2px solid #ffffff !important; color: #ffffff !important; }
-body.dark-theme .ftcopy { border-top: 1px solid #ffffff !important; color: #ffffff !important; opacity: 0.85; }
+body.dark-theme .map-section { background: #000000 !important; border-bottom: 2px solid #222222 !important; }
+body.dark-theme .map-wrap { border: 2px solid #333333 !important; }
+body.dark-theme footer { background: #000000 !important; border-top: 2px solid #222222 !important; color: #cccccc !important; }
+body.dark-theme .ftcopy { border-top: 1px solid #1e1e1e !important; color: #777777 !important; }
 body.dark-theme .back-to-top {
-  background: #111010 !important;
-  border: 1.5px solid #ffffff !important;
+  background: #222222 !important;
+  border: 1.5px solid #444444 !important;
   color: #ffffff !important;
 }
+
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
