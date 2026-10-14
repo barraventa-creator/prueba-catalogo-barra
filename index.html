@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barra Arte &amp; Estilo — Catálogo Oficial 2026</title>
 
-  <!-- Preconexión rápida al servidor de imágenes para acelerar la carga en móvil -->
+  <!-- Preconexión rápida al servidor de imágenes y TikTok para acelerar la carga en móvil -->
   <link rel="preconnect" href="https://barraleather.com">
   <link rel="dns-prefetch" href="https://barraleather.com">
+  <link rel="preconnect" href="https://www.tiktok.com">
 
   <!-- Google Fonts: Fredoka -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,6 +70,13 @@ body {
 
 body.modal-open {
   overflow: hidden;
+}
+
+body.modal-open .wa-float,
+body.modal-open .back-to-top {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
 
 /* ── ACCESIBILIDAD ── */
@@ -429,7 +437,6 @@ header {
   font-weight: 700;
 }
 .cat-tile[data-cat="Liquidacion"].active span { color: #fff !important; }
-
 /* ── BARRA DE FILTROS ── */
 .filter-bar {
   color: var(--texto-principal);
@@ -1082,6 +1089,11 @@ input[type=text]::placeholder { color: #6e5845; font-size: .85rem; }
 .color-consulta svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
 
 /* Botones de acción Modal */
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
 .btn-wa {
   flex: 2;
   padding: 15px;
@@ -1415,7 +1427,6 @@ footer a { color: #fff; text-decoration: none; }
 .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .back-to-top:hover { background: #4a3828; }
 .back-to-top svg { width: 18px; height: 18px; fill: currentColor; }
-
 /* ══════════════════════════════════════════════════════════════════════
    ── MODO NOCHE ──
    ══════════════════════════════════════════════════════════════════════ */
@@ -1838,11 +1849,25 @@ body.dark-theme .back-to-top {
   .video-area { min-height: 520px; }
   
   .modal-info {
-    padding: 24px 18px calc(88px + env(safe-area-inset-bottom));
+    padding: 24px 18px calc(24px + env(safe-area-inset-bottom));
     width: 100%;
     flex: 1;
   }
   .m-name { font-size: 1.6rem; }
+
+  /* Botones "Pedir por WhatsApp" y "Compartir" fijos abajo en móvil */
+  .modal-actions {
+    position: sticky;
+    bottom: 0;
+    z-index: 20;
+    background: var(--fondo-tarjeta);
+    padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
+    border-top: 1.5px solid var(--raya-divisoria);
+  }
+  body.dark-theme .modal-actions {
+    background: #121212 !important;
+    border-top: 1.5px solid #262626 !important;
+  }
   
   header, .filter-bar { padding-left: 16px; padding-right: 16px; }
   .header-right { font-size: .65rem; }
@@ -2051,7 +2076,7 @@ body.dark-theme .back-to-top {
   <div class="empty" id="empty" role="status" hidden>
     <div style="font-size:2.5rem;margin-bottom:12px;opacity:.3" aria-hidden="true">🔍</div>
     <h3>Sin resultados</h3>
-    <p>No encontramos productos con ese término.<br>Intenta con otro código, color o nombre.</p>
+    <p>No encontramos productos con ese término.<br>Intenta con otro código o nombre.</p>
     <button type="button" class="btn-limpiar" id="emptyClearBtn" style="margin:16px auto 0;display:inline-flex;">Ver todo el catálogo</button>
   </div>
 
@@ -2133,7 +2158,7 @@ body.dark-theme .back-to-top {
         </div>
 
         <!-- Botones de Acción -->
-        <div style="display:flex;gap:8px;margin-top:auto;">
+        <div class="modal-actions">
           <button class="btn-wa" id="mWA" type="button">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             <span>Pedir por WhatsApp</span>
@@ -2224,7 +2249,6 @@ body.dark-theme .back-to-top {
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     <div class="wa-float-tooltip">¡Escríbenos!</div>
   </a>
-
   <!-- SCRIPTS -->
   <script>
 // data.js — Catálogo Oficial Barra Arte & Estilo 2026
@@ -2345,7 +2369,7 @@ window.APP_DATA = {
     {code:'MO09',name:'Vintage Mediano',cat:'Mochila',price:550,medidas:'36.5×26.5×11 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7661312779676044561',img:'https://barraleather.com/wp-content/uploads/2026/07/Portada-de-categoria-mochila-general.webp'},
     {code:'MO13',name:'Mochila',cat:'Mochila',price:600,medidas:'40.5×30×10 cm',emoji:'🎒',colores:['Negro','Camel','Marrón'],tiktok:'7277426482698341637',img:'https://barraleather.com/wp-content/uploads/2026/07/Mochila-de-cuero-mo13-color-camel.webp'},
     {code:'MO14',name:'Vintage Grande',cat:'Mochila',price:680,medidas:'42X31X16 cm',emoji:'🎒',colores:['—'],tiktok:'7661312779676044561',img:'https://barraleather.com/wp-content/uploads/2026/07/Portada-de-categoria-mochila-general.webp'},
-    {code:'MO05',name:'Mochila Manta',cat:'Mochila',liquidacion:true,price:220,priceOld:280,medidas:'38X24.5X16.5',emoji:'🎒',colores:['—'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/06/MOCHILA-MO05-NA-ATRAS-MANTA-CUZQUENA-1.webp'},
+    {code:'MO05',name:'Mochila Manta',cat:'Mochila',liquidacion:true,price:220,priceOld:280,medidas:'38X24.5X16.5',emoji:'🎒',colores:['Color único (Manta)'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/06/MOCHILA-MO05-NA-ATRAS-MANTA-CUZQUENA-1.webp'},
     {code:'MV04',name:'Maleta',cat:'Bolso de Viaje',liquidacion:true,price:550,priceOld:650,medidas:'52x26x24 cm',emoji:'🧳',colores:['Negro'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-DE-CUERO-MV03-V2-CUERO-LISO-CUERO-GENUINO.webp'},
     {code:'CN01',name:'Canguro Mediano',cat:'Canguro',price:120,medidas:'32×12×6 cm',emoji:'👝',colores:['Negro','Camel','Marrón'],tiktok:'7277631268454452485',img:'https://barraleather.com/wp-content/uploads/2026/07/Canguro-de-cuero-color-verde-CN01.webp'},
     {code:'CN02 - Rosa',name:'Canguro',cat:'Canguro',liquidacion:true,price:109,priceOld:150,medidas:'23x17x9 cm',emoji:'👝',colores:['Negro','Camel','Marrón'],tiktok:'7277636755740708101',img:'https://barraleather.com/wp-content/uploads/2026/07/CANGURO-CN02-ROSA-NEGRO-CUERO-GENUINO-DAMAS.webp'},
@@ -2401,7 +2425,7 @@ window.APP_DATA = {
     {code:'TJ06',name:'Tarjetero',cat:'Tarjetero',price:45,medidas:'11×9.5 cm',emoji:'🪪',colores:['Negro','Camel','Marrón'],tiktok:'7410991428739910917',img:'https://barraleather.com/wp-content/uploads/2026/03/TARJETERO-DE-CUERO-TJ06.jpg'},
     {code:'MV01',name:'Bolso',cat:'Bolso de Viaje',price:600,medidas:'36×28×19 cm',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:'7622057567786683664',img:'https://barraleather.com/wp-content/uploads/2026/03/MV-01-MARRON.jpg'},
     {code:'MV02',name:'Bolso viaje',cat:'Bolso de Viaje',price:650,medidas:'45 ancho x 26 alto x 21.5 fuelle',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/MV02-Bolso-de-Viaje-de-Cuero-Color-Camel.webp'},
-    {code:'MV03',name:'Bolso California',cat:'Bolso de Viaje',price:700,medidas:'53.5×37.5×23.5 cm',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:'7622401038313639184',img:'https://barraleather.com/wp-content/uploads/2026/10/MV03-BOLSO-DE-VIAJE-CAMEL-CUERO-CRAQUELADO-HOMBRES-DAMAS-UNISEX.webp'},
+    {code:'MV03',name:'Bolso California',cat:'Bolso de Viaje',price:700,medidas:'53.5×37.5×23.5 cm',emoji:'🧳',colores:['Negro','Camel','Marrón'],tiktok:'7622401038313639184',img:'https://barraleather.com/wp-content/uploads/2026/03/MV-01-CAMEL.png'},
     {code:'MN01',name:'Maletín',cat:'Maletín',liquidacion:true,price:229,priceOld:280,medidas:'24×28×7 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MN01.png'},
     {code:'MN04',name:'Maletín',cat:'Maletín',price:320,medidas:'34×25×7 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7276988812230790405',img:'https://barraleather.com/wp-content/uploads/2026/07/MALETIN-CUERO-MN04-MARRON-CUERO-GENUINO-CUERO-LISO-UNISEX.webp'},
     {code:'MN07',name:'Maletín',cat:'Maletín',price:480,medidas:'38×28.5×9.5 cm',emoji:'💼',colores:['Negro','Camel','Marrón'],tiktok:'7283622304184077574',img:'https://barraleather.com/wp-content/uploads/2026/03/Morral-de-cuero-MN07.png'},
@@ -2440,15 +2464,13 @@ window.APP_DATA = {
     {code:'ML14',name:'Morral',cat:'Morral',price:320,medidas:'25×33.5×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:'7665484353492880641',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML14.jpg'},
     {code:'ML15',name:'Morral',cat:'Morral',liquidacion:true,price:299,priceOld:350,medidas:'33×25.5×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML15.jpg'},
     {code:'ML20',name:'Morral',cat:'Morral',price:280,medidas:'22×29×7 cm',emoji:'📁',colores:['Negro','Camel','Marrón'],tiktok:'7396375561460894981',img:'https://barraleather.com/wp-content/uploads/2026/03/MORRALITO-DE-CUERO-ML20.jpg'},
-    {code:'LL01',name:'Llavero',cat:'Accesorio',liquidacion:true,price:5,priceOld:10,medidas:'7x5.5 cm',emoji:'🔑',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL01.jpg'},
-    {code:'LL02',name:'Llavero',cat:'Accesorio',liquidacion:true,price:8,priceOld:15,medidas:'7x6 cm',emoji:'🔑',colores:['Camel'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL02.jpg'},
     {code:'LL03',name:'Llavero',cat:'Accesorio',price:15,medidas:'12x2.5 cm',emoji:'🔑',colores:['Negro','Marrón'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL03.jpg'},
     {code:'LL04',name:'Llavero',cat:'Accesorio',price:35,medidas:'13x3.5 cm',emoji:'🔑',colores:['Marrón'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL04.jpg'},
     {code:'LL05',name:'Llavero Corazón',cat:'Accesorio',price:30,medidas:'9x8.5',emoji:'🔑',colores:['Rojo'],tiktok:'7629867896281238805',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL05.jpg'},
     {code:'LL06',name:'Llavero',cat:'Accesorio',price:30,medidas:'15x2.5',emoji:'🔑',colores:['Guinda'],tiktok:'7400007079152389382',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-LL06.jpg'},
     {code:'PT01',name:'Llavero Porta Llaves',cat:'Accesorio',price:15,medidas:'9×7.5 cm',emoji:'🔑',colores:['Negro','Camel'],tiktok:'7619446973007170837',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-PT01.jpg'},
     {code:'PT02',name:'Llavero Multiusos',cat:'Accesorio',liquidacion:true,price:25,priceOld:50,medidas:'13.5x6 cm',emoji:'🔑',colores:['Negro','Camel'],tiktok:'7620849878188952852',img:'https://barraleather.com/wp-content/uploads/2026/03/LLAVERO-DE-CUERO-PT02.jpg'},
-    {code:'PT04',name:'Porta Celular',cat:'Accesorio',price:89,priceOld:120,medidas:'9.5x18.5x3.5',emoji:'📱',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
+    {code:'PT04',name:'Porta Celular',cat:'Accesorio',liquidacion:true,price:89,priceOld:120,medidas:'9.5x18.5x3.5',emoji:'📱',colores:['Negro','Camel','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-CELULAR-DE-CUERO-PT04.jpg'},
     {code:'PT11',name:'Porta Pasaporte',cat:'Accesorio',price:95,medidas:'10x14',emoji:'🛂',colores:['Negro','Camel','Marrón'],tiktok:'7400023049052916998',img:'https://barraleather.com/wp-content/uploads/2026/03/PORTA-PASAPORTE-PT11.jpg'},
     {code:'SO01',name:'Sombrero',cat:'Accesorio',price:160,medidas:'60 cm',emoji:'🎩',colores:['Negro','Camel','Marrón'],tiktok:'7593493155433991442',img:'https://barraleather.com/wp-content/uploads/2026/03/SOMBRERO-DE-CUERO-SO01.jpg'},
     {code:'GR01',name:'Gorro Clasico',cat:'Accesorio',price:120,medidas:'60 cm',emoji:'🧢',colores:['Negro','Marrón'],tiktok:null,img:'https://barraleather.com/wp-content/uploads/2026/08/GR01-CLASICO-GORRO-DE-CUERO.webp'},
@@ -2547,11 +2569,12 @@ window.APP_DATA = {
   const WA_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>';
   const VIDEO_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 00-2.13-2.14C19.53 3.5 12 3.5 12 3.5s-7.53 0-9.37.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.13 2.14C4.47 20.5 12 20.5 12 20.5s7.53 0 9.37-.55a3.02 3.02 0 002.13-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>';
 
-  // ── HELPERS (ESPACIO NO ROMPIBLE EN FORMATO DE PRECIO) ──
+  // ── HELPERS (ESPACIO NO ROMPIBLE EN FORMATO DE PRECIO Y NORMALIZACIÓN SIN TILDES) ──
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+  function norm(s){ return String(s==null?'':s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim(); }
   function debounce(fn, ms=200){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; }
   // ' ' (non-breaking space) garantiza que nunca se divida el S/ del precio
-  function fmt(n){ return 'S/ ' + n; }
+  function fmt(n){ return 'S/\u00a0' + n; }
 
   function isLiquidacion(p){
     return Boolean(p.liquidacion || (p.priceOld && p.priceOld > p.price));
@@ -2564,7 +2587,7 @@ window.APP_DATA = {
   // ── ESTADO ──
   let busqueda = '', categoriaActiva = 'Todos', sortDir = null, viewMode = 'grid';
   let currentTiktokId = null, currentProductName = '', currentProduct = null;
-  let modalTrigger = null;
+  let modalTrigger = null, modalHistoryPushed = false;
 
   // ── LAZY LOADING ──
   const imgObserver = new IntersectionObserver(entries => {
@@ -2617,7 +2640,7 @@ window.APP_DATA = {
     DOM.themeToggle.addEventListener('click', ()=> applyTheme(!document.body.classList.contains('dark-theme')));
   }
 
-  // ── ESTADO EN URL ──
+  // ── ESTADO EN URL E HISTORIAL MÓVIL (BOTÓN ATRÁS CIERRA MODAL) ──
   const CATEGORIAS_VALIDAS = ['Todos', 'Liquidacion', ...new Set(productos.map(p=>p.cat))];
   function readURL(){
     const p = new URLSearchParams(location.search);
@@ -2638,6 +2661,11 @@ window.APP_DATA = {
   }
 
   window.addEventListener('popstate', ()=>{
+    if (DOM.overlay && DOM.overlay.classList.contains('open')) {
+      modalHistoryPushed = false;
+      closeModal(true);
+      return;
+    }
     readURL();
     if (DOM.searchInput) DOM.searchInput.value = busqueda;
     updateClearBtn();
@@ -2737,9 +2765,9 @@ window.APP_DATA = {
   if (DOM.btnGrid) DOM.btnGrid.addEventListener('click', ()=>setView('grid'));
   if (DOM.btnList) DOM.btnList.addEventListener('click', ()=>setView('list'));
 
-  // ── FILTRO DE PRODUCTOS ──
+  // ── FILTRO DE PRODUCTOS (SIN TILDES, SOLO CÓDIGO, NOMBRE Y CATEGORÍA) ──
   function getFiltered(){
-    const q = busqueda.toLowerCase().trim();
+    const q = norm(busqueda);
     let list = productos.filter(p=>{
       if (categoriaActiva === 'Liquidacion'){
         if (!isLiquidacion(p)) return false;
@@ -2747,9 +2775,9 @@ window.APP_DATA = {
         return false;
       }
       if (q) {
-        const matchCode = p.code && p.code.toLowerCase().includes(q);
-        const matchName = p.name && p.name.toLowerCase().includes(q);
-        const matchCat  = p.cat && p.cat.toLowerCase().includes(q);
+        const matchCode = p.code && norm(p.code).includes(q);
+        const matchName = p.name && norm(p.name).includes(q);
+        const matchCat  = p.cat && norm(p.cat).includes(q);
         if (!matchCode && !matchName && !matchCat) return false;
       }
       return true;
@@ -2760,7 +2788,7 @@ window.APP_DATA = {
     return list;
   }
 
-  // ── RENDERIZADO ──
+  // ── RENDERIZADO (PRIMEROS 4 CON EAGER + FETCHPRIORITY HIGH SIN SKELETON) ──
   function render(list){
     const infoEl = document.querySelector('.results-info');
     if (infoEl){
@@ -2792,8 +2820,9 @@ window.APP_DATA = {
     const parts = [];
     if (viewMode === 'list'){
       DOM.grid.className = 'grid list-mode';
-      list.forEach(p=>{
+      list.forEach((p, idxRender)=>{
         const pi = p._idx;
+        const isEager = idxRender < 4;
         const hasVid = p.tiktok ? `<div class="video-badge" style="position:static;margin-left:8px">${VIDEO_SVG}<span>Video</span></div>` : '';
         const ahorro = getAhorro(p);
         const priceBlock = isLiquidacion(p)
@@ -2801,11 +2830,15 @@ window.APP_DATA = {
             (ahorro > 0 ? `<span class="modal-discount-badge" style="margin-left:0;padding:2px 8px 2px 2px;"><span class="badge-fire" style="width:18px;height:18px;font-size:.7rem;">🔥</span><span class="badge-amount" style="font-size:.68rem;">-S/ ${ahorro}</span></span>` : '')
           : `<div class="card-price">${fmt(p.price)}</div>`;
 
+        const imgTag = isEager
+          ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="eager" fetchpriority="high" onload="this.classList.add('loaded')" onerror="this.classList.add('error')">`
+          : `<img data-src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" onload="this.classList.add('loaded')" onerror="this.classList.add('error')">`;
+
         parts.push(
           `<div class="card list-card" tabindex="0" role="button" aria-label="${esc(p.name)} ${esc(p.code)}" data-idx="${pi}">
             <div class="card-img">
               <span class="card-emoji" aria-hidden="true">${p.emoji||'👜'}</span>
-              <img data-src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" onload="this.classList.add('loaded')" onerror="this.classList.add('error')">
+              ${imgTag}
             </div>
             <div class="card-body">
               <div>
@@ -2820,22 +2853,30 @@ window.APP_DATA = {
       });
     } else {
       DOM.grid.className = 'grid';
-      list.forEach(p=>{
+      list.forEach((p, idxRender)=>{
         const pi = p._idx;
+        const isEager = idxRender < 4;
         const hasVid = p.tiktok ? `<div class="video-badge">${VIDEO_SVG}<span>Video</span></div>` : '';
         const ahorro = getAhorro(p);
         const badge = isLiquidacion(p)
           ? `<div class="liq-badge-img"><span class="badge-fire" aria-hidden="true">🔥</span><span class="badge-amount">${ahorro > 0 ? `-S/ ${ahorro}` : 'OFERTA'}</span></div>`
           : '';
 
+        const imgContainerClass = isEager ? 'card-img' : 'card-img skeleton';
+        const imgTag = isEager
+          ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="eager" fetchpriority="high"
+                onload="this.classList.add('loaded')"
+                onerror="this.classList.add('error')">`
+          : `<img data-src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy"
+                onload="this.classList.add('loaded');this.parentElement.classList.remove('skeleton')"
+                onerror="this.classList.add('error');this.parentElement.classList.remove('skeleton')">`;
+
         parts.push(
           `<div class="card" tabindex="0" role="button" aria-label="${esc(p.name)} ${esc(p.code)}" data-idx="${pi}">
-            <div class="card-img skeleton">
+            <div class="${imgContainerClass}">
               ${badge}
               <span class="card-emoji" aria-hidden="true">${p.emoji||'👜'}</span>
-              <img data-src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy"
-                onload="this.classList.add('loaded');this.parentElement.classList.remove('skeleton')"
-                onerror="this.classList.add('error');this.parentElement.classList.remove('skeleton')">
+              ${imgTag}
               ${hasVid}
               <div class="card-hover-overlay"><div class="card-hover-label">${WA_SVG} Ver detalles</div></div>
             </div>
@@ -2960,7 +3001,12 @@ window.APP_DATA = {
   function openModal(idx){
     if (!Number.isInteger(idx) || idx < 0 || idx >= productos.length) return;
     const p = productos[idx];
-    if (DOM.overlay && !DOM.overlay.classList.contains('open')) modalTrigger = document.activeElement;
+    const wasOpen = DOM.overlay && DOM.overlay.classList.contains('open');
+    if (!wasOpen) {
+      modalTrigger = document.activeElement;
+      history.pushState({ modal: true, code: p.code }, '', location.href);
+      modalHistoryPushed = true;
+    }
     currentProduct = p;
     const isCare = /^AC0[1-4]$/.test(p.code);
 
@@ -3064,7 +3110,7 @@ window.APP_DATA = {
     resetShipUI();
     showTab('img');
 
-    // Botón WhatsApp
+    // Botón WhatsApp (Regla de separación con S/ 20 siempre)
     if (DOM.mWA) {
       DOM.mWA.onclick = () => {
         showToast('Abriendo WhatsApp…');
@@ -3072,18 +3118,14 @@ window.APP_DATA = {
         let distTxt = '';
         if (sel){
           const parts = sel.split('|');
-          if (parts.length >= 2) distTxt = `📍 Envío para: ${parts[1]}
-`;
+          if (parts.length >= 2) distTxt = `📍 Envío para: ${parts[1]}\n`;
         }
         const colTxt = (p.colores && p.colores.length && p.colores[0] !== '—') ? p.colores.join(', ') : 'consultar';
+        const textoSeparacion = p.price >= 20
+          ? 'Quisiera separar mi modelo con el adelanto de S/ 20.'
+          : 'Quisiera separar mi pedido con el adelanto de S/ 20 (a cuenta del producto y envío).';
         const msg = encodeURIComponent(
-          `Hola Barra! 👋 Vi su catálogo y me interesa:
-
-📦 *${p.name}* (${p.code})
-💰 Precio: ${fmt(p.price)}
-${distTxt}🎨 Colores: ${colTxt}
-
-¿Está disponible? Quisiera separar mi modelo con el adelanto de S/ 20.`
+          `Hola Barra! 👋 Vi su catálogo y me interesa:\n\n📦 *${p.name}* (${p.code})\n💰 Precio: ${fmt(p.price)}\n${distTxt}🎨 Colores: ${colTxt}\n\n¿Está disponible? ${textoSeparacion}`
         );
         window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank', 'noopener,noreferrer');
       };
@@ -3119,7 +3161,7 @@ ${distTxt}🎨 Colores: ${colTxt}
     if (DOM.closeBtn) DOM.closeBtn.focus();
   }
 
-  function closeModal(){
+  function closeModal(fromPopstate){
     if (!DOM.overlay || !DOM.overlay.classList.contains('open')) return;
     DOM.overlay.classList.remove('open');
     if (DOM.videoArea) {
@@ -3130,18 +3172,21 @@ ${distTxt}🎨 Colores: ${colTxt}
     currentProductName = '';
     currentProduct = null;
     if (DOM.mImg) DOM.mImg.src = '';
-    resetShipUI();
     document.body.classList.remove('modal-open');
     if (modalTrigger && modalTrigger.isConnected) modalTrigger.focus();
     modalTrigger = null;
+    if (modalHistoryPushed && !fromPopstate) {
+      modalHistoryPushed = false;
+      history.back();
+    }
   }
 
-  if (DOM.closeBtn) DOM.closeBtn.addEventListener('click', closeModal);
-  if (DOM.overlay) DOM.overlay.addEventListener('click', e => { if (e.target === DOM.overlay) closeModal(); });
+  if (DOM.closeBtn) DOM.closeBtn.addEventListener('click', () => closeModal(false));
+  if (DOM.overlay) DOM.overlay.addEventListener('click', e => { if (e.target === DOM.overlay) closeModal(false); });
 
   document.addEventListener('keydown', e => {
     if (!DOM.overlay || !DOM.overlay.classList.contains('open')) return;
-    if (e.key === 'Escape'){ e.preventDefault(); closeModal(); return; }
+    if (e.key === 'Escape'){ e.preventDefault(); closeModal(false); return; }
     if (e.key !== 'Tab') return;
     const items = [...DOM.overlay.querySelectorAll('button, a[href], input, select, textarea, iframe, [tabindex="0"]')]
       .filter(el => !el.disabled && el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
@@ -3152,7 +3197,7 @@ ${distTxt}🎨 Colores: ${colTxt}
     else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
   });
 
-  // ── CALCULADORA DE ENVÍOS ──
+  // ── CALCULADORA DE ENVÍOS (CON MEMORIA EN LOCALSTORAGE) ──
   function populateDistricts(){
     if (!DOM.shipDistrict) return;
     DOM.shipDistrict.innerHTML = '';
@@ -3186,15 +3231,34 @@ ${distTxt}🎨 Colores: ${colTxt}
     });
   }
 
-  function resetShipUI(){
-    if (DOM.shipToggle) DOM.shipToggle.setAttribute('aria-expanded', 'false');
-    if (DOM.shipBody) DOM.shipBody.classList.remove('open');
-    if (DOM.shipResult) {
+  function calculateShipping(){
+    if (!DOM.shipDistrict || !DOM.shipResult) return;
+    const val = DOM.shipDistrict.value;
+    if (!val){
       DOM.shipResult.hidden = true;
       DOM.shipResult.style.display = 'none';
       DOM.shipResult.innerHTML = '';
+      return;
     }
-    if (DOM.shipDistrict) DOM.shipDistrict.value = '';
+    const [, nombre, costoStr] = val.split('|');
+    const costo = parseInt(costoStr, 10) || 10;
+    const price = currentProduct ? currentProduct.price : 100;
+    const adelanto = 20;
+    const total = price + costo;
+    const contraEntrega = Math.max(0, total - adelanto);
+
+    DOM.shipResult.innerHTML = `<div class="ship-result-minimal">
+      <div class="ship-result-line"><span>🚚 Costo de envío (${esc(nombre)}):</span><strong>S/ ${costo}.00</strong></div>
+      <div class="ship-result-line"><span>📦 Total pedido (producto + envío):</span><strong>S/ ${total}.00</strong></div>
+      <div class="ship-result-line ship-result-total"><span>💵 Saldo a pagar al recibir:</span><strong class="total-amount">S/ ${contraEntrega}.00</strong></div>
+    </div>`;
+    DOM.shipResult.hidden = false;
+    DOM.shipResult.style.display = '';
+  }
+
+  function resetShipUI(){
+    if (DOM.shipToggle) DOM.shipToggle.setAttribute('aria-expanded', 'false');
+    if (DOM.shipBody) DOM.shipBody.classList.remove('open');
     if (DOM.shipTabBtn1) DOM.shipTabBtn1.classList.add('active');
     if (DOM.shipTabBtn2) DOM.shipTabBtn2.classList.remove('active');
     if (DOM.shipLima) {
@@ -3205,6 +3269,13 @@ ${distTxt}🎨 Colores: ${colTxt}
       DOM.shipProv.hidden = true;
       DOM.shipProv.style.display = 'none';
     }
+    let savedDist = '';
+    try { savedDist = localStorage.getItem('catalogo_distrito') || ''; } catch(e){}
+    if (DOM.shipDistrict) {
+      DOM.shipDistrict.value = savedDist;
+      if (DOM.shipDistrict.value !== savedDist) DOM.shipDistrict.value = '';
+    }
+    calculateShipping();
   }
 
   function switchShipTab(tab){
@@ -3235,28 +3306,11 @@ ${distTxt}🎨 Colores: ${colTxt}
   if (DOM.shipDistrict) {
     DOM.shipDistrict.addEventListener('change', ()=>{
       const val = DOM.shipDistrict.value;
-      if (!val || !DOM.shipResult){
-        if (DOM.shipResult) {
-          DOM.shipResult.hidden = true;
-          DOM.shipResult.style.display = 'none';
-        }
-        return;
-      }
-      const [, nombre, costoStr] = val.split('|');
-      const costo = parseInt(costoStr, 10) || 10;
-      const price = currentProduct ? currentProduct.price : 100;
-      const adelanto = price >= 20 ? 20 : price;
-      const saldoProducto = price - adelanto;
-      const contraEntrega = saldoProducto + costo;
-      const total = price + costo;
-
-      DOM.shipResult.innerHTML = `<div class="ship-result-minimal">
-        <div class="ship-result-line"><span>🚚 Costo de envío (${esc(nombre)}):</span><strong>S/ ${costo}.00</strong></div>
-        <div class="ship-result-line"><span>📦 Total pedido (producto + envío):</span><strong>S/ ${total}.00</strong></div>
-        <div class="ship-result-line ship-result-total"><span>💵 Saldo a pagar al recibir:</span><strong class="total-amount">S/ ${contraEntrega}.00</strong></div>
-      </div>`;
-      DOM.shipResult.hidden = false;
-      DOM.shipResult.style.display = '';
+      try {
+        if (val) localStorage.setItem('catalogo_distrito', val);
+        else localStorage.removeItem('catalogo_distrito');
+      } catch(e){}
+      calculateShipping();
     });
   }
 
